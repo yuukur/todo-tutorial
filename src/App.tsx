@@ -31,6 +31,15 @@ function App() {
     setInputValue("");
   };
 
+  const handleEdit = (id: number, inputValue: string) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.inputValue = inputValue;
+      }
+      return todo;
+    });
+    setTodos(newTodos);
+  };
   return (
     <div className="App">
       <div>
@@ -39,6 +48,18 @@ function App() {
           <input type="text" onChange={(e) => handleChange(e)} className="" />
           <input type="submit" value="作成" />
         </form>
+        <ul className="">
+          {todos.map((todo) => (
+            <li key={todo.id}>
+              <input
+                type="text"
+                onChange={(e) => handleEdit(todo.id, e.target.value)}
+                className=""
+                value={todo.inputValue}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

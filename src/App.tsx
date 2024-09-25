@@ -3,8 +3,14 @@ import "./index.css";
 
 function App() {
   return (
-    <div>
-      <h1 className="w-40 text-blue-300 bg-white-600">こんにちは</h1>
+    <div className="App">
+      <div>
+        <h2>Todoリスト with Typescript</h2>
+        <form onSubmit={() => {}}>
+          <input type="text" onChange={() => {}} className="" />
+          <input type="submit" value="作成" />
+        </form>
+      </div>
     </div>
   );
 }

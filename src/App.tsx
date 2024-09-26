@@ -72,7 +72,7 @@ function App() {
               <input
                 type="text"
                 onChange={(e) => handleEdit(todo.id, e.target.value)}
-                className=""
+                className={todo.checked ? "line-through" : ""}
                 value={todo.inputValue}
                 disabled={todo.checked}
               />

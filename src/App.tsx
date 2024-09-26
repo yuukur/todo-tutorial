@@ -5,6 +5,7 @@ import "./index.css";
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [version, setVersion] = useState<number>(0);
 
   type Todo = {
     inputValue: string;
@@ -28,7 +29,8 @@ function App() {
     };
 
     setTodos([newTodo, ...todos]);
-    setInputValue("");
+
+    setVersion(version + 1);
   };
 
   const handleEdit = (id: number, inputValue: string) => {
@@ -60,7 +62,7 @@ function App() {
     <div className="App">
       <div>
         <h2>Todoリスト with Typescript</h2>
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)} key={version}>
           <input type="text" onChange={(e) => handleChange(e)} className="" />
           <input type="submit" value="作成" />
         </form>
